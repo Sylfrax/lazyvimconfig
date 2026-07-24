@@ -5,7 +5,12 @@ vim.lsp.config = {
         cmd = {"ocamllsp"},
         filetypes = {"ocaml"},
         capabilities = capabilities,
-    }
+    },
+    ["rust-analyzer"] = {
+        cmd = {"rust-analyzer"},
+        filetypes = {"Cargo.toml"}, 
+        capabilities = capabilities,
+    },
 }
 
 vim.lsp.enable({
@@ -15,3 +20,9 @@ vim.lsp.enable({
 require("plugins.lsp.lspconfig")
 require("plugins.lsp.cmp")
 
+-- Neovim 默认诊断配置
+vim.diagnostic.config({
+    virtual_text = true,    -- 显示行尾错误信息
+    signs = true,           -- 显示符号（你看到的 "E"）
+    underline = true,       -- 下划线
+})

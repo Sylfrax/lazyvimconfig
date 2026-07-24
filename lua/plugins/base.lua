@@ -16,11 +16,14 @@ local plugins = {
     gh .. "saadparwaiz1/cmp_luasnip",
     gh .. "rafamadriz/friendly-snippets",
     -- lualine
+    gh .. "nvim-lualine/lualine.nvim"
 }
 
 
 vim.pack.add(plugins)
 
-require("plugins.colorscheme")
+require("plugins.embellish.colorscheme")
+require("plugins.embellish.lualine")
+
 require("plugins.lsp.autopairs")
 require("plugins.lsp.lsp")
