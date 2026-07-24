@@ -8,13 +8,14 @@ vim.lsp.config = {
     },
     ["rust-analyzer"] = {
         cmd = {"rust-analyzer"},
-        filetypes = {"Cargo.toml"}, 
+        filetypes = {"rust"}, 
         capabilities = capabilities,
     },
 }
 
 vim.lsp.enable({
-    "ocamllsp"
+    "ocamllsp",
+    "rust-analyzer",
 })
 
 require("plugins.lsp.lspconfig")
