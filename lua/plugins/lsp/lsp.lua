@@ -11,6 +11,11 @@ vim.lsp.config = {
         filetypes = {"rust"}, 
         capabilities = capabilities,
     },
+    ["lua_ls"] = {
+        cmd = {"lua-language-server"},
+        filetypes = {"lua"},
+        capabilities = capabilities,
+    }
 }
 
 vim.lsp.enable({
