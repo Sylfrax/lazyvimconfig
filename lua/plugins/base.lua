@@ -4,7 +4,7 @@ local gh = "https://github.com/"
 local plugins = {
 
     --color scheme
-    gh .. "olimorris/onedarkpro.nvim",
+    --gh .. "olimorris/onedarkpro.nvim",
     --auto pairs
     gh .. "windwp/nvim-autopairs",
     --lsp cmp
