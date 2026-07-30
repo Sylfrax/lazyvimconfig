@@ -1,6 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config = {
+--[[vim.lsp.config = {
     ["ocamllsp"] = {
         cmd = {"ocamllsp"},
         filetypes = {"ocaml"},
@@ -16,11 +14,19 @@ vim.lsp.config = {
         filetypes = {"lua"},
         capabilities = capabilities,
     }
-}
+}]]
+
+local lua = vim.lsp.config.lua_ls
+local rust = vim.lsp.config.rust_analyzer
+local ocaml = vim.lsp.config.ocamllsp 
+vim.lsp.config("lua_ls", lua)
+vim.lsp.config("rust_analyzer", rust)
+vim.lsp.config("ocamllsp", ocaml)
 
 vim.lsp.enable({
     "ocamllsp",
-    "rust-analyzer",
+    "rust_analyzer",
+    "lua_ls"
 })
 
 require("plugins.lsp.lspconfig")
