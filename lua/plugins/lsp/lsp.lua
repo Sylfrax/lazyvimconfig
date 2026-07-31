@@ -19,18 +19,21 @@
 local lua = vim.lsp.config.lua_ls
 local rust = vim.lsp.config.rust_analyzer
 local ocaml = vim.lsp.config.ocamllsp 
+local c_cpp = vim.lsp.config.ccls
 vim.lsp.config("lua_ls", lua)
 vim.lsp.config("rust_analyzer", rust)
 vim.lsp.config("ocamllsp", ocaml)
+vim.lsp.config("ccls", c_cpp)
 
 vim.lsp.enable({
     "ocamllsp",
     "rust_analyzer",
-    "lua_ls"
+    "lua_ls",
+    "ccls",
 })
 
 require("plugins.lsp.lspconfig")
-require("plugins.lsp.cmp")
+require("plugins.lsp.blink")
 
 -- Neovim 默认诊断配置
 vim.diagnostic.config({
