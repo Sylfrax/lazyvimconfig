@@ -56,6 +56,10 @@
       "rev": "898ee307df58f854d11cd7edd06472574d48014e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
+    "onedarkpro.nvim": {
+      "rev": "24c806cb85c1f84d9faaff457cf7aa87c685a070",
+      "src": "https://github.com/olimorris/onedarkpro.nvim"
+    },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"

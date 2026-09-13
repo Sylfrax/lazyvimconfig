@@ -9,7 +9,7 @@ end
 local plugins = {
 
     --color scheme
-    --gh .. "olimorris/onedarkpro.nvim",
+    { src = gh("olimorris", "onedarkpro.nvim") },
     --lsp config
     { src = gh("neovim", "nvim-lspconfig") },
     --auto pairs
@@ -36,7 +36,7 @@ local plugins = {
 
 vim.pack.add(plugins)
 
-
+require("plugins.lsp.tree")
 require("plugins.lsp.autopairs")
 require("plugins.lsp.lsp")
 
