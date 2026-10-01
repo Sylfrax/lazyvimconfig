@@ -1,5 +1,5 @@
 -- 2. 设置基础解析器列表，并在插件变更时自动安装
-local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+local parsers = { 'bash', 'c', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
 local nvim_treesitter = require('nvim-treesitter')
 
 -- 安装基础解析器

@@ -1,38 +1,32 @@
---[[vim.lsp.config = {
-    ["ocamllsp"] = {
-        cmd = {"ocamllsp"},
-        filetypes = {"ocaml"},
-        capabilities = capabilities,
-    },
-    ["rust-analyzer"] = {
-        cmd = {"rust-analyzer"},
-        filetypes = {"rust"}, 
-        capabilities = capabilities,
-    },
-    ["lua_ls"] = {
-        cmd = {"lua-language-server"},
-        filetypes = {"lua"},
-        capabilities = capabilities,
-    }
-}]]
 
-local lua = vim.lsp.config.lua_ls
-local rust = vim.lsp.config.rust_analyzer
-local ocaml = vim.lsp.config.ocamllsp 
-local c_cpp = vim.lsp.config.ccls
-local haskell = vim.lsp.config.hls
-vim.lsp.config("lua_ls", lua) 
-vim.lsp.config("rust_analyzer", rust)
-vim.lsp.config("ocamllsp", ocaml)
-vim.lsp.config("ccls", c_cpp)
-vim.lsp.config("haskell", haskell)
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client:supports_method("textDocument/inlayHint") then
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+  end,
+})
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+    },
+  },
+})
 
 vim.lsp.enable({
     "ocamllsp",
     "rust_analyzer",
     "lua_ls",
     "ccls",
-    "haskell"
+    "hls",
+    "gopls"
 })
 
 require("plugins.lsp.lspconfig")

@@ -2,40 +2,51 @@
 ---@param name string
 ---@param repo string
 ---@return string
-local gh = function (name, repo)
+local tool_pin = function (name, repo)
     return "https://github.com/"..name.."/"..repo 
 end
+---@param name string
+---@param repo string
+---@return table
+local gh = function (name, repo)
+    return { src = "https://github.com/"..name.."/"..repo }
+end
 
+---@param name string
+---@param repo string
+---@param ver string
+---@return table
+local gh_v = function (name, repo, ver)
+    return { src = tool_pin(name, repo), version = ver }
+end
 local plugins = {
 
     --color scheme
-    { src = gh("olimorris", "onedarkpro.nvim") },
+    gh("olimorris", "onedarkpro.nvim"),
     --lsp config
-    { src = gh("neovim", "nvim-lspconfig") },
+    gh("neovim", "nvim-lspconfig"),
     --auto pairs
-    { src = gh("windwp", "nvim-autopairs") },
+    gh("windwp", "nvim-autopairs"),
     --lsp cmp
-    { src = gh("hrsh7th", "nvim-cmp") },
-    { src = gh("hrsh7th", "cmp-nvim-lsp") },
-    { src = gh("hrsh7th", "cmp-path") },
-    { src = gh("hrsh7th", "cmp-buffer") },
-    { src = gh("L3MON4D3", "LuaSnip") },
-    { src = gh("saadparwaiz1", "cmp_luasnip") },
-    { src = gh("rafamadriz", "friendly-snippets") },
+    gh("hrsh7th", "nvim-cmp"),
+    gh("hrsh7th", "cmp-nvim-lsp"),
+    gh("hrsh7th", "cmp-path"),
+    gh("hrsh7th", "cmp-buffer"),
+    gh("L3MON4D3", "LuaSnip"),
+    gh("saadparwaiz1", "cmp_luasnip"),
+    gh("rafamadriz", "friendly-snippets"),
     -- lualine
-    { src = gh("nvim-lualine", "lualine.nvim") },
+    gh("nvim-lualine", "lualine.nvim"),
 
-    { src = gh("folke", "snacks.nvim") },
+    gh("folke", "snacks.nvim"),
 
-    { src = gh("nvim-treesitter", "nvim-treesitter") },
+    gh("nvim-treesitter", "nvim-treesitter"),
     
-    { src = gh("saghen", "blink.lib") },
-    { src = gh("saghen", "blink.cmp") }
+    gh_v("saghen", "blink.cmp", "v1.10.2")
 }
 
 
 vim.pack.add(plugins)
-
 require("plugins.lsp.tree")
 require("plugins.lsp.autopairs")
 require("plugins.lsp.lsp")
