@@ -25,18 +25,16 @@ local plugins = {
     gh("olimorris", "onedarkpro.nvim"),
     --lsp config
     gh("neovim", "nvim-lspconfig"),
-    --auto pairs
-    gh("windwp", "nvim-autopairs"),
-    gh("L3MON4D3", "LuaSnip"),
-    gh("rafamadriz", "friendly-snippets"),
     -- lualine
     gh("nvim-lualine", "lualine.nvim"),
 
-    gh("folke", "snacks.nvim"),
 
     gh("nvim-treesitter", "nvim-treesitter"),
     
-    gh_v("saghen", "blink.cmp", "v1.10.2")
+    gh_v("saghen", "blink.cmp", "v1.10.2"),
+
+    --mini.nvim
+    gh("echasnovski", "mini.nvim")
 }
 
 
@@ -46,10 +44,8 @@ for _, pl in ipairs(plug) do
     vim.cmd.packadd(pl.spec.name)
 end
 require("plugins.lsp.tree")
-require("plugins.lsp.autopairs")
 require("plugins.lsp.lsp")
 
 require("plugins.embellish.colorscheme")
 require("plugins.embellish.lualine")
-require("plugins.tools.snacks")
-
+require("plugins.tools.mini")
