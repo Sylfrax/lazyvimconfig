@@ -1,5 +1,4 @@
 local augroup = vim.api.nvim_create_augroup("BlinkCmpLazy", {
-
     clear = true 
 })
 vim.api.nvim_create_autocmd("InsertEnter", {
@@ -8,18 +7,16 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     once = true,
     callback = function ()
         vim.defer_fn(function ()
+            print("blink start")
             require("blink.cmp").setup({
                 keymap = {
                     preset = "super-tab"
-
                 },
                 sources = {
                     default = { "lsp", "path", "snippets", "buffer" },
                 },
                 fuzzy = {
                     --implementation = "lua"
-                    max_items = 50,
-                    pre_filter = true,
                     sorts = { "score", "kind" },
                 },
                 completion = {
@@ -49,8 +46,6 @@ vim.api.nvim_create_autocmd("InsertEnter", {
                 }
 
             })
-            
-        end, 50)
-            
+        end, 50)            
     end
 })

@@ -38,11 +38,7 @@ local plugins = {
 }
 
 
-vim.pack.add(plugins, { load = function() end })
-local plug = vim.pack.get()
-for _, pl in ipairs(plug) do
-    vim.cmd.packadd(pl.spec.name)
-end
+vim.pack.add(plugins)
 require("plugins.lsp.tree")
 require("plugins.lsp.lsp")
 
