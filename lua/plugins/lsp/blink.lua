@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     once = true,
     callback = function ()
         vim.defer_fn(function ()
+            vim.pack.add({ gh_v("saghen", "blink.cmp", "v1.10.2") })
             print("blink start")
             require("blink.cmp").setup({
                 keymap = {

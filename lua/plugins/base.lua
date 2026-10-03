@@ -8,7 +8,7 @@ end
 ---@param name string
 ---@param repo string
 ---@return table
-local gh = function (name, repo)
+gh = function (name, repo)
     return { src = "https://github.com/"..name.."/"..repo }
 end
 
@@ -16,7 +16,7 @@ end
 ---@param repo string
 ---@param ver string
 ---@return table
-local gh_v = function (name, repo, ver)
+gh_v = function (name, repo, ver)
     return { src = tool_pin(name, repo), version = ver }
 end
 local plugins = {
@@ -26,12 +26,12 @@ local plugins = {
     --lsp config
     gh("neovim", "nvim-lspconfig"),
     -- lualine
-    gh("nvim-lualine", "lualine.nvim"),
+--    gh("nvim-lualine", "lualine.nvim"),
 
 
     gh("nvim-treesitter", "nvim-treesitter"),
     
-    gh_v("saghen", "blink.cmp", "v1.10.2"),
+--    gh_v("saghen", "blink.cmp", "v1.10.2"),
 
     --mini.nvim
     gh("echasnovski", "mini.nvim")
