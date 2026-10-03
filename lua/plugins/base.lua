@@ -27,13 +27,7 @@ local plugins = {
     gh("neovim", "nvim-lspconfig"),
     --auto pairs
     gh("windwp", "nvim-autopairs"),
-    --lsp cmp
-    gh("hrsh7th", "nvim-cmp"),
-    gh("hrsh7th", "cmp-nvim-lsp"),
-    gh("hrsh7th", "cmp-path"),
-    gh("hrsh7th", "cmp-buffer"),
     gh("L3MON4D3", "LuaSnip"),
-    gh("saadparwaiz1", "cmp_luasnip"),
     gh("rafamadriz", "friendly-snippets"),
     -- lualine
     gh("nvim-lualine", "lualine.nvim"),
@@ -46,7 +40,11 @@ local plugins = {
 }
 
 
-vim.pack.add(plugins)
+vim.pack.add(plugins, { load = function() end })
+local plug = vim.pack.get()
+for _, pl in ipairs(plug) do
+    vim.cmd.packadd(pl.spec.name)
+end
 require("plugins.lsp.tree")
 require("plugins.lsp.autopairs")
 require("plugins.lsp.lsp")

@@ -8,5 +8,3 @@ vim.opt.shiftwidth = 4
 vim.opt.wrap = false
 vim.opt.smartindent = true
 vim.g.mapleader = " "
-
-

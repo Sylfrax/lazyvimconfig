@@ -24,9 +24,10 @@ vim.lsp.enable({
     "ocamllsp",
     "rust_analyzer",
     "lua_ls",
-    "ccls",
+    "clangd",
     "hls",
-    "gopls"
+    "gopls",
+    "zls"
 })
 
 require("plugins.lsp.lspconfig")
