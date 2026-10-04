@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
         vim.pack.add({ gh("nvim-lualine", "lualine.nvim") })
-        print("lualine load")
+        vim.notify("Lualine is running( ^3^ )/~~")
         require("lualine").setup({
             options = {
                 theme = "auto",

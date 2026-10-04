@@ -8,4 +8,8 @@ require("mini.icons").setup()
 require("mini.hipatterns").setup()
 require("mini.cursorword").setup()
 
---require("mini.notify").setup()
+require("mini.notify").setup()
+
+require("mini.map").setup()
+require("mini.animate").setup() 
+require("mini.trailspace").setup()

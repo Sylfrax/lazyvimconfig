@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     callback = function ()
         vim.defer_fn(function ()
             vim.pack.add({ gh_v("saghen", "blink.cmp", "v1.10.2") })
-            print("blink start")
+            vim.notify("Blink loading")
             require("blink.cmp").setup({
                 keymap = {
                     preset = "super-tab"
